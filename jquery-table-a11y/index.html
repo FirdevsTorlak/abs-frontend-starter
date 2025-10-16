@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery A11y Table Filter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Personaltabelle</h1>
+    <div class="toolbar">
+      <label for="q">Suche</label>
+      <input id="q" type="search" aria-describedby="q-hint">
+      <span id="q-hint" class="visually-hidden">Filtern nach Name oder Abteilung</span>
+      <span id="live" class="badge" aria-live="polite"></span>
+    </div>
+
+    <table id="tbl" role="grid" aria-label="Personaltabelle">
+      <thead>
+        <tr>
+          <th scope="col" tabindex="0">Name</th>
+          <th scope="col" tabindex="0">Abteilung</th>
+          <th scope="col" tabindex="0">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td tabindex="0">Max Hoffmann</td><td tabindex="0">Lohn</td><td tabindex="0">Aktiv</td></tr>
+        <tr><td tabindex="0">Jenn Muster</td><td tabindex="0">Fibu</td><td tabindex="0">Aktiv</td></tr>
+        <tr><td tabindex="0">Ali Veli</td><td tabindex="0">IT</td><td tabindex="0">Inaktiv</td></tr>
+        <tr><td tabindex="0">Banu Nur</td><td tabindex="0">Support</td><td tabindex="0">Aktiv</td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script src="js/table.js"></script>
+</body>
+</html>

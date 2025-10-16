@@ -1,0 +1,32 @@
+<div class="toolbar">
+  <label for="filter">Suche</label>
+    <input #filterBox id="filter" type="search"
+         [value]="filterTerm()"
+         (input)="filterTerm.set(filterBox.value)"
+         aria-describedby="filter-hint">
+  <span id="filter-hint" class="visually-hidden">Geben Sie einen Namen oder eine E-Mail ein</span>
+  <a routerLink="/new">+ Neuer Benutzer</a>
+</div>
+
+<div aria-live="polite" aria-atomic="true">{{ liveMessage() }}</div>
+
+<table role="grid" aria-label="Benutzerliste" (keydown)="onKeydownTable($event)">
+  <thead>
+    <tr>
+      <th scope="col" tabindex="0" (click)="setSort('name')">Name</th>
+      <th scope="col" tabindex="0" (click)="setSort('email')">E-Mail</th>
+      <th scope="col" tabindex="0" (click)="setSort('role')">Rolle</th>
+      <th scope="col" tabindex="0" (click)="setSort('active')">Aktiv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users()">
+      <td tabindex="0">{{ u.name }}</td>
+      <td tabindex="0">{{ u.email }}</td>
+      <td tabindex="0">{{ u.role }}</td>
+      <td tabindex="0">
+        <span [attr.aria-label]="u.active ? 'aktiv' : 'inaktiv'">{{ u.active ? '✔' : '—' }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

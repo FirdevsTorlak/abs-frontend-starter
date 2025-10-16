@@ -1,0 +1,39 @@
+<form (ngSubmit)="submit()" [formGroup]="form" aria-describedby="form-errors" novalidate>
+  <div role="alert" id="form-errors" *ngIf="errorMsg()">{{ errorMsg() }}</div>
+
+  <div>
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name" [attr.aria-invalid]="form.controls.name.invalid && form.controls.name.touched" />
+    <div *ngIf="form.controls.name.invalid && form.controls.name.touched" class="error" role="alert">
+      Name ist erforderlich (min. 2 Zeichen).
+    </div>
+  </div>
+
+  <div>
+    <label for="email">E-Mail</label>
+    <input id="email" type="email" formControlName="email" [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched" />
+    <div *ngIf="form.controls.email.invalid && form.controls.email.touched" class="error" role="alert">
+      Gültige E-Mail erforderlich.
+    </div>
+  </div>
+
+  <div>
+    <label for="role">Rolle</label>
+    <select id="role" formControlName="role">
+      <option value="Employee">Employee</option>
+      <option value="Manager">Manager</option>
+      <option value="Admin">Admin</option>
+    </select>
+  </div>
+
+  <div>
+    <label>
+      <input type="checkbox" formControlName="active" /> Aktiv
+    </label>
+  </div>
+
+  <p>
+    <button type="submit">Speichern</button>
+    <a routerLink="/users">Abbrechen</a>
+  </p>
+</form>

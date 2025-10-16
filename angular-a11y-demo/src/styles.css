@@ -1,0 +1,20 @@
+:root {
+  --brand: #0d6efd;
+  --focus: #ffbf47;
+}
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; }
+a { color: var(--brand); }
+.skip-link {
+  position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus { position: static; width: auto; height: auto; padding: .5rem; background: #000; color: #fff; }
+:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+header, nav, main, footer { padding: 1rem; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ddd; padding: .5rem; }
+th { background: #f6f6f6; text-align: left; }
+.visually-hidden { position: absolute; left: -10000px; }
+input, button, select { font: inherit; padding: .4rem .6rem; }
+.toolbar { display: flex; gap: .5rem; align-items: center; margin-bottom: .75rem; }
+.badge { display: inline-block; padding: .2rem .5rem; background: #eef5ff; border: 1px solid #cfe2ff; border-radius: .375rem; }
